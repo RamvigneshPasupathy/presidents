@@ -1,4 +1,4 @@
-package com.zoho.model;
+package com.sam.bean;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

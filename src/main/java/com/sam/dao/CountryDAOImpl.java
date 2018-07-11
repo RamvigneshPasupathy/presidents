@@ -1,4 +1,4 @@
-package com.zoho.dao;
+package com.sam.dao;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
-import com.zoho.model.Country;
+import com.sam.bean.Country;
 
 @Repository
 public class CountryDAOImpl implements CountryDAO {

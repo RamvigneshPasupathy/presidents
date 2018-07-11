@@ -1,8 +1,8 @@
-package com.zoho.dao;
+package com.sam.dao;
 
 import java.util.List;
 
-import com.zoho.model.Country;
+import com.sam.bean.Country;
 
 public interface CountryDAO {
 	

@@ -1,12 +1,12 @@
-package com.zoho.service;
+package com.sam.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.zoho.dao.CountryDAO;
-import com.zoho.model.Country;
+import com.sam.bean.Country;
+import com.sam.dao.CountryDAO;
 
 @Service
 public class CountryServiceImpl implements CountryService {

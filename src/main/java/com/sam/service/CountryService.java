@@ -1,8 +1,8 @@
-package com.zoho.service;
+package com.sam.service;
 
 import java.util.List;
 
-import com.zoho.model.Country;
+import com.sam.bean.Country;
 
 public interface CountryService {
 	

@@ -1,4 +1,4 @@
-package com.zoho.controller;
+package com.sam.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.zoho.model.Country;
-import com.zoho.service.CountryService;
+import com.sam.bean.Country;
+import com.sam.service.CountryService;
 
 @Controller
 public class CountryController {
