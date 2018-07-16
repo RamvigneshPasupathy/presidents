@@ -52,14 +52,13 @@
 		<beans:property name="sessionFactory"
 			ref="hibernate4AnnotatedSessionFactory" />
 	</beans:bean>
-	
+
 	<beans:bean id="countryService"
 		class="com.sam.service.CountryServiceImpl">
 		<beans:property name="countryDAO" ref="countryDAO"></beans:property>
 	</beans:bean>
-	
-	<context:component-scan
-		base-package="com.sam" />
+
+	<context:component-scan base-package="com.sam" />
 
 	<tx:annotation-driven
 		transaction-manager="transactionManager" />
@@ -68,6 +67,11 @@
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<beans:property name="sessionFactory"
 			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<beans:property name="basename" value="WEB-INF/classes/messages" />
 	</beans:bean>
 
 </beans:beans>

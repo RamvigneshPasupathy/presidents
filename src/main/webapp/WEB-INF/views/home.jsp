@@ -48,10 +48,18 @@
 .tg .tg-4eph {
 	background-color: #f9f9f9
 }
+
+.capitalCase {
+	text-transform: capitalize;
+}
+
+.error {
+	color: red;
+}
 </style>
 </head>
 <body>
-	<h1>President</h1>
+	<h1>President Form</h1>
 
 	<c:url var="addAction" value="/country/upsert"></c:url>
 
@@ -70,26 +78,30 @@
 				<td><form:label path="name">
 						<spring:message text="Country" />
 					</form:label></td>
-				<td><form:input path="name" required="true" /></td>
+				<td><form:input path="name" /></td>
+				<td><form:errors path="name" cssClass="error" /></td>
 			</tr>
 			<tr>
 				<td><form:label path="president">
 						<spring:message text="President" />
 					</form:label></td>
-				<td><form:input path="president" required="true" /></td>
+				<td><form:input path="president" /></td>
+				<td><form:errors path="president" cssClass="error" /></td>
 			</tr>
 			<tr>
 				<td colspan="2"><c:if test="${!empty country.name}">
-						<input class="button" type="submit" value="<spring:message text="Update President"/>" />
+						<input class="button" type="submit"
+							value="<spring:message text="Update President"/>" />
 					</c:if> <c:if test="${empty country.name}">
-						<input class="button" type="submit" value="<spring:message text="Add Country"/>" />
+						<input class="button" type="submit"
+							value="<spring:message text="Add Country"/>" />
 					</c:if></td>
 			</tr>
 		</table>
 	</form:form>
 	<br>
-	<h3>Presidents List</h3>
 	<c:if test="${!empty presidentsList}">
+		<h3>Presidents List</h3>
 		<table class="tg">
 			<tr>
 				<th width="80">Country ID</th>
@@ -101,8 +113,8 @@
 			<c:forEach items="${presidentsList}" var="country">
 				<tr>
 					<td>${country.id}</td>
-					<td>${country.name}</td>
-					<td>${country.president}</td>
+					<td class="capitalCase">${country.name}</td>
+					<td class="capitalCase">${country.president}</td>
 					<td><a href="<c:url value='/edit/${country.id}' />">Update</a></td>
 					<td><a href="<c:url value='/remove/${country.id}' />">Delete</a></td>
 				</tr>

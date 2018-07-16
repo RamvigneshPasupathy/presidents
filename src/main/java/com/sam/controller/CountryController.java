@@ -1,10 +1,13 @@
 package com.sam.controller;
 
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,13 +40,17 @@ public class CountryController {
 	}
 
 	@RequestMapping(value = "/country/upsert", method = RequestMethod.POST)
-	public String addCountry(@ModelAttribute("country") Country country) {
-		if (country.getId() == 0) {
-			this.countryService.addCountry(country);
+	public String addCountry(@ModelAttribute("country") @Valid Country country,  BindingResult bindingResult ) {
+		if(bindingResult.hasErrors()) {
+			return "home";
 		} else {
-			this.countryService.updatePresident(country);
+			if (country.getId() == 0) {
+				this.countryService.addCountry(country);
+			} else {
+				this.countryService.updatePresident(country);
+			}
+			return "redirect:/presidents";	
 		}
-		return "redirect:/presidents";
 	}
 
 	@RequestMapping("/remove/{id}")

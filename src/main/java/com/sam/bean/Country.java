@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name="COUNTRY")
 public class Country {
@@ -16,8 +18,10 @@ public class Country {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
+	@NotEmpty(message = "Country name cannot be empty.")
 	private String name;
 	
+	@NotEmpty(message = "President name cannot be empty.")
 	private String president;
 
 	public int getId() {
